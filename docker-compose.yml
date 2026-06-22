@@ -1,0 +1,10 @@
+services:
+  live2d-api:
+    image: php:8.3-cli-alpine
+    working_dir: /app
+    command: php -S 0.0.0.0:8080 -t /app /app/docker/router.php
+    ports:
+      - "${LIVE2D_API_PORT:-8100}:8080"
+    volumes:
+      - ./:/app
+    restart: unless-stopped

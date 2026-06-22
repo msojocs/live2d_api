@@ -15,6 +15,38 @@ Live2D 看板娘插件 (https://www.fghrsh.net/post/123.html) 上使用的后端
 - PHP 版本 >= 5.2
 - 依赖 PHP 扩展：json
 
+### Docker Compose
+
+项目已提供轻量 Docker Compose 配置，默认使用官方 `php:8.3-cli-alpine` 镜像和 PHP 内置服务器，不引入 Apache/Nginx，也不需要本地构建镜像。
+
+```shell
+docker compose up -d
+```
+
+启动后访问：
+
+```shell
+http://localhost:8080/get/?id=1
+```
+
+如需修改宿主机端口，可设置 `LIVE2D_API_PORT`：
+
+```shell
+LIVE2D_API_PORT=9000 docker compose up -d
+```
+
+PowerShell：
+
+```powershell
+$env:LIVE2D_API_PORT='9000'; docker compose up -d
+```
+
+停止服务：
+
+```shell
+docker compose down
+```
+
 ### 目录结构
 
 ```shell
